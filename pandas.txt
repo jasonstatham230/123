@@ -1,0 +1,46 @@
+import pandas as pd
+import numpy as np
+
+# Загрузка таблицы и удаление столбца с индексом.
+df = pd.read_csv('C:\\Users\\Titanic.csv', index_col=INDEX_COL)
+
+# Показывать по команде 'HEAD_ROWS_TO_SHOW' первые 15 строк.
+HEAD_ROWS_TO_SHOW = 15
+
+# Просмотр типов данных в каждой колонке.
+df.dtypes
+
+# Просмотр кол-ва занятых строк в каждой колонке.
+df.info()
+
+# Вывод кол-ва строк и кол-ва столбцов.
+df.shape 
+
+# Вывод колонки SEX и показ первых 15 строк.
+df[SEX_COL][:HEAD_ROWS_TO_SHOW]
+
+# Подсчет в колонке SEX общего количества людей мужского и женского пола.
+df[SEX_COL].value_counts()
+
+# Вывод графика.
+df[SEX_COL_COL].value_counts().plot.pie()
+
+# Удаление столбцов.
+df = df.drop(['PassengerId','Name','Ticket','Cabin'],axis=1)
+или df = df.drop (columns = ['PassengerId', 'Name'])
+
+# Экспорт CSV в корневую папку Jupyter.
+df.to_csv('file-name.csv', index=False)
+
+# Создание столбца 'train set' и присвоение ему значения 1.
+df['train set'] = 1
+
+# Просмотр и подсчет всех NaN значений во всех столбцах.
+df.isnull().sum()
+
+# Изменение всех значений NaN на значение 0.
+df.fillna(0, inplace=True)
+
+
+// сделать профиль на гитхабе и туда залить текстовый документ с нужными командами.
+// скинуть в лс лехе вк.
